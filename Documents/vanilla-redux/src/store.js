@@ -16,4 +16,6 @@ const reducer = (state = [], action) => {
 
 const store = createStore(reducer);
 
+store.subscribe();
+
 export default store;
