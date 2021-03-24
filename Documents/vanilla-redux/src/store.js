@@ -1,5 +1,19 @@
 import { createStore } from "redux";
 
+// Add and Delete action
+const addToDo = text => {
+  return {
+    type: ADD,
+    text
+  };
+};
+const deleteToDo = id => {
+  return {
+    type: DEL,
+    id
+  };
+};
+
 const ADD = "ADD";
 const DEL = "DEL";
 
@@ -16,6 +30,11 @@ const reducer = (state = [], action) => {
 
 const store = createStore(reducer);
 
-store.subscribe();
+// store.subscribe();
+
+export const actionCreators = {
+  addToDo,
+  deleteToDo
+};
 
 export default store;

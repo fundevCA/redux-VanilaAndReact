@@ -6,7 +6,7 @@ const form = document.querySelector("form");
 const input = document.querySelector("input");
 const ul = document.querySelector("ul");
 
-// Use var instead of string to minimize human mistakes
+// Use variable instead of string to minimize human mistakes
 const ADD = "ADD";
 const DEL = "DEL";
 
