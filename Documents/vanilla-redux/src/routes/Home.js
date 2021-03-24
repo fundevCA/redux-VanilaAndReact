@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import store, { actionCreators } from "../store";
 import { connect } from "react-redux";
+import ToDo from "../components/ToDo";
 
-const Home = ({ toDo, addToDo }) => {
+const Home = ({ toDos, addToDo }) => {
   const [text, setText] = useState("");
+  const inputEl = useRef(null);
 
   const onChange = e => {
     setText(e.target.value);
@@ -13,21 +15,34 @@ const Home = ({ toDo, addToDo }) => {
     e.preventDefault();
     addToDo(text);
     setText("");
+    inputEl.current.focus();
   };
+
+  const inputRef = () => {};
+
   return (
     <>
       <h1>To Do</h1>
       <form onSubmit={onSubmit}>
-        <input type="text" value={text} onChange={onChange}></input>
+        <input
+          type="text"
+          value={text}
+          onChange={onChange}
+          ref={inputEl}
+        ></input>
         <button>Add Task</button>
       </form>
-      <ul>{JSON.stringify(toDo)}</ul>
+      <ul>
+        {toDos.map(toDo => (
+          <ToDo {...toDo} key={toDo.id} />
+        ))}
+      </ul>
     </>
   );
 };
 
 function mapStateToProps(state) {
-  return { toDo: state };
+  return { toDos: state };
 }
 
 function mapDispatchToProps(dispatch) {
