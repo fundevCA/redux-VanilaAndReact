@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import store, { actionCreators } from "../store";
+import { actionCreators } from "../store";
 import { connect } from "react-redux";
 import ToDo from "../components/ToDo";
 
@@ -17,8 +17,6 @@ const Home = ({ toDos, addToDo }) => {
     setText("");
     inputEl.current.focus();
   };
-
-  const inputRef = () => {};
 
   return (
     <>
