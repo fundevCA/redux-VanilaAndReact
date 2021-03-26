@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import { createAction } from "@reduxjs/toolkit";
+import { createAction, createReducer } from "@reduxjs/toolkit";
 
 // Replace with crete action function in toolkit
 // Add and Delete action
