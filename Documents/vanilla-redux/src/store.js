@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import { createAction, createReducer } from "@reduxjs/toolkit";
+import { createAction, createReducer, configureStore } from "@reduxjs/toolkit";
 
 // Replace with crete action function in toolkit
 // Add and Delete action
@@ -26,7 +26,7 @@ const reducer = createReducer([], {
     state.filter(item => item.id !== action.payload)
 });
 
-const store = createStore(reducer);
+const store = configureStore({ reducer });
 
 // store.subscribe();
 
