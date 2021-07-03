@@ -5,9 +5,10 @@ const Movie = new Schema(
   {
     name: String,
     time: { type: [String] },
-    rating: Number
+    rating: { type: Number }
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Movies", Movie);
+const MovieModel = mongoose.model("Movies", Movie);
+module.exports = MovieModel;
